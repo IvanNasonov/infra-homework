@@ -4,20 +4,20 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  Install dependencies:
+  install-dependencies:
     runs-on: ubuntu-latest
     steps:
       - name: Install npm packages
         run: npm ci
       - name: Install puppeteer
         run: npx playwright install --with-deps chromium
-  Run unit tests:
-    needs: Install dependencies
+  run-unit-tests:
+    needs: install-dependencies
     runs-on: ubuntu-latest
     steps:
       - run: npm test
-  Run e2e tests:
-    needs: [Install dependencies, Run unit tests]
+  run-e2e-tests:
+    needs: [install-dependencies, run-unit-tests]
     runs-on: ubuntu-latest
     steps:
       - run: npm run e2e
