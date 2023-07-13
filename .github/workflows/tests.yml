@@ -4,14 +4,14 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  install-dependencies:
+  run-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: Install npm packages
         run: npm ci
-      - run: npm test
+      - run: npm run test-ci
       - name: Install puppeteer
         run: npx playwright install --with-deps chromium
       - run: npm run e2e
