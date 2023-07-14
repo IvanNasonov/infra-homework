@@ -1,5 +1,5 @@
 name: Run tests for pull request
-run-name: Running tests for ${{ github.event.pull_request.title }} for commit ${{ github.event.pull_request.head.sha }}
+run-name: Running tests for ${{ github.event.pull_request.title }}
 on:
   pull_request:
     types: [opened, synchronize, reopened]
