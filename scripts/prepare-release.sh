@@ -16,6 +16,9 @@ echo "Setting name to $user_name"
 echo "Setting email to $user_email"
 git config --global user.email $user_email
 git config --global user.name $user_name
+git pull origin/master master
+git checkout master
+
 
 # remember previous version
 PREV_VERSION=$(node -p "require('./package.json').version")
@@ -26,8 +29,6 @@ echo "Previous tag is ${PREV_TAG}"
 # update version and changelog
 VERSION_NUMBER=${1:1}
 echo "Creating changelog for $VERSION_NUMBER"
-git checkout master
-git pull
 npx standard-version --release-as $VERSION_NUMBER --skip.tag
 git push origin master
 
