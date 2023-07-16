@@ -14,8 +14,8 @@
 echo "Setting up git user"
 echo "Setting name to $user_name"
 echo "Setting email to $user_email"
-git config --global user.email $user_name
-git config --global user.name $user_email
+git config --global user.email $user_email
+git config --global user.name $user_name
 
 # remember previous version
 PREV_VERSION=$(node -p "require('./package.json').version")
