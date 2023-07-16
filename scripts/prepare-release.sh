@@ -10,7 +10,7 @@
 # $2 - user who initialted release
 # $3 - changelog
 
-echo $3
+echo "ChangeLog $3"
 
 # configure git user
 echo "Setting up git user"
