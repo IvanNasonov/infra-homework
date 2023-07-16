@@ -17,7 +17,7 @@
 git config --global user.email $GITHUB_USER_EMAIL
 git config --global user.name $GITHUB_USER_NAME
 
-$NEW_VERSION = $1
+NEW_VERSION=$1
 
 git checkout -b $NEW_VERSION
 git push –set-upstream origin $NEW_VERSION
