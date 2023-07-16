@@ -17,7 +17,7 @@ echo "Setting email to $user_email"
 git config --global user.email $user_email
 git config --global user.name $user_name
 git checkout master
-
+git fetch --all --tags
 
 # remember previous version
 PREV_VERSION=$(node -p "require('./package.json').version")
@@ -44,7 +44,6 @@ git push --set-upstream origin $NEW_BRANCH_NAME
 # 3. cut cunts the "+" character and limits line length to 1024 characrers
 # 4. awk prints the lines with newlines
 echo "Preparing release notes"
-git fetch --all --tags
 RELEASE_NOTES=$(git diff $PREV_TAG $1 CHANGELOG.md | egrep '^\+' | cut -c2-1024 | awk '{printf "%s\\n", $0}')
 echo "Release notes $RELEASE_NOTES"
 
