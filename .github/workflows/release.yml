@@ -13,4 +13,6 @@ jobs:
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
       - name: Create hotfix branch and issue
+        env:
+          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: ./scripts/prepare-release.sh ${{  github.ref_name }} ${{  github.actor }}
