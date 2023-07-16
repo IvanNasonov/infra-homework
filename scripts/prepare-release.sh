@@ -28,7 +28,7 @@ git push --set-upstream origin $NEW_BRANCH_NAME
 # generate changelog and change app version using standard-version
 VERSION_NUMBER=${1:1}
 echo "Creating changelog for $VERSION_NUMBER"
-npx standard-version -- --release-as $VERSION_NUMBER --skip.tag
+npx standard-version --release-as $VERSION_NUMBER --skip.tag
 
 # creating a release issue
 gh issue create --title "Release $1" --body "Insert body here" --label "RELEASE" --assignee $2 --body-file ./CHANGELOG.md
