@@ -16,7 +16,7 @@ echo "Setting email to $user_email"
 git config --global user.email $user_name
 git config --global user.name $user_email
 
-echo $(git config --global user.email)
+echo $(git config --global --list)
 echo $(git config --global user.name)
 
 # create release branch for hotfixes
