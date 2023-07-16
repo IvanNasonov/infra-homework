@@ -17,9 +17,9 @@
 git config --global user.email $GITHUB_USER_EMAIL
 git config --global user.name $GITHUB_USER_NAME
 
-NEW_VERSION=$1
+NEW_BRANCH_NAME="release-$1"
 
-echo "creating branch $NEW_VERSION"
+echo "creating branch $NEW_BRANCH_NAME"
 
-git checkout -b $NEW_VERSION
-git push -u origin $NEW_VERSION
+git checkout -b $NEW_BRANCH_NAME
+git push -set-upstream origin $NEW_BRANCH_NAME
