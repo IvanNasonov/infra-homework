@@ -38,6 +38,7 @@ git push origin master
 # 4. awk prints the lines with newlines
 echo "Preparing release notes"
 RELEASE_NOTES=$(git diff $PREV_TAG $1 CHANGELOG.md | egrep '^\+' | cut -c2-1024 | awk '{printf "%s<br />", $0}')
+RELEASE_NOTES=$(echo${RELEASE_NOTES/++ b\/CHANGELOG.md\\n/ })
 
 # create release branch for hotfixes
 NEW_BRANCH_NAME="release-$1"
