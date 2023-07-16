@@ -26,9 +26,15 @@ echo "previous tag is ${PREV_TAG}"
 # update version and changelog
 VERSION_NUMBER=${1:1}
 echo "Creating changelog for $VERSION_NUMBER"
+git pull
+git status
 git checkout master
+git status
 npx standard-version --release-as $VERSION_NUMBER --skip.tag
+git status
+echo $(git status)
 git push origin master
+
 
 # create release branch for hotfixes
 NEW_BRANCH_NAME="release-$1"
