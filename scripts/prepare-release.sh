@@ -13,8 +13,8 @@
 echo "Setting up git user"
 git config --global user.email $user_name
 git config --global user.name $user_email
-echo git config --global user.email
-echo git config --global user.name
+echo ${git config --global user.email}
+echo ${git config --global user.name}
 
 # create release branch for hotfixes
 NEW_BRANCH_NAME="release-$1"
