@@ -1,4 +1,4 @@
-name: Release process
+name: Prepare release
 run-name: Release in progress
 on:
   push:
@@ -8,10 +8,9 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: Set env
-        run: echo "TAG=${{  github.ref_name }}" >> $GITHUB_ENV
       - name: Check out repository code
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
-      - run: ./scripts/prepare-release.sh $TAG
+      - name: Create hotfix branch and issue
+      - run: ./scripts/prepare-release.sh ${{  github.ref_name }} ${{  github.author }}
