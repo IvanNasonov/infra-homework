@@ -16,7 +16,6 @@ echo "Setting name to $user_name"
 echo "Setting email to $user_email"
 git config --global user.email $user_email
 git config --global user.name $user_name
-git pull origin/master master
 git checkout master
 
 
