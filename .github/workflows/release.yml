@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - run: ../../scripts/prepare-release.sh
+      - run: scripts/prepare-release.sh
