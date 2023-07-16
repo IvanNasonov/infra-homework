@@ -19,7 +19,7 @@ git config --global user.name $GITHUB_USER_NAME
 
 NEW_VERSION=$1
 
-echo $NEW_VERSION
+echo "creating branch $NEW_VERSION"
 
 git checkout -b $NEW_VERSION
-git push –set-upstream origin $NEW_VERSION
+git push -u origin $NEW_VERSION
