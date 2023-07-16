@@ -22,4 +22,4 @@ NEW_BRANCH_NAME="release-$1"
 echo "creating branch $NEW_BRANCH_NAME"
 
 git checkout -b $NEW_BRANCH_NAME
-git push -set-upstream origin $NEW_BRANCH_NAME
+git push --set-upstream origin $NEW_BRANCH_NAME
