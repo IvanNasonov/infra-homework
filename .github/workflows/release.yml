@@ -1,5 +1,5 @@
 name: Prepare release
-run-name: Release in progress
+run-name: Preparing release
 on:
   push:
     tags:
