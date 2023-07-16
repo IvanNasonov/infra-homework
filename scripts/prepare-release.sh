@@ -8,9 +8,6 @@
 # Variables
 # $1 - version tag name
 # $2 - user who initialted release
-# $3 - changelog
-
-echo "ChangeLog $3"
 
 # configure git user
 echo "Setting up git user"
@@ -52,4 +49,4 @@ echo "Release notes $RELEASE_NOTES"
 
 
 # creating a release issue
-gh issue create --title "Release $1" --body "Insert body here" --label "RELEASE" --assignee "$2" --body "$RELEASE_NOTES"
+gh issue create --title "Release $1" --label "RELEASE" --assignee "$2" --body "$RELEASE_NOTES"

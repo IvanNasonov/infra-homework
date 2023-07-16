@@ -18,13 +18,6 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           fetch-depth: 0
 
-      - name: Update CHANGELOG
-        id: changelog
-        uses: requarks/changelog-action@v1
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          tag: ${{ github.ref_name }}
-
       - name: Create hotfix branch and issue
         env:
           GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
