@@ -12,4 +12,6 @@ jobs:
         run: echo "TAG=${{  github.ref_name }}" >> $GITHUB_ENV
       - name: Check out repository code
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
       - run: ./scripts/prepare-release.sh $TAG
