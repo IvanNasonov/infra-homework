@@ -10,6 +10,8 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: Set env
+        run: echo "TAG=${{  github.ref_name }}" >> $GITHUB_ENV
       - name: Check out repository code
         uses: actions/checkout@v3
-      - run: ./scripts/prepare-release.sh ${{  github.ref_name }}
+      - run: ./scripts/prepare-release.sh $RELEASE_TAG
