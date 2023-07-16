@@ -42,7 +42,7 @@ git push --set-upstream origin $NEW_BRANCH_NAME
 # 4. awk prints the lines with newlines
 echo "Preparing release notes"
 RELEASE_NOTES=$(git diff $PREV_TAG $1 CHANGELOG.md | egrep '^\+' | cut -c2-1024 | awk '{printf "%s\\n", $0}')
-echo $RELEASE_NOTES
+echo "Release notes $RELEASE_NOTES"
 
 
 # creating a release issue
