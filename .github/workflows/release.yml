@@ -7,7 +7,9 @@ on:
     tags:
       - v[0-9]+
 jobs:
-  run-tests:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "you have created a release tag"
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: ../../scripts/prepare-release.sh
