@@ -34,13 +34,6 @@ echo "Creating changelog for $VERSION_NUMBER"
 npx standard-version --release-as $VERSION_NUMBER --skip.tag
 git push origin master
 
-
-# create release branch for hotfixes
-NEW_BRANCH_NAME="release-$1"
-echo "Creating branch $NEW_BRANCH_NAME"
-git checkout -b $NEW_BRANCH_NAME
-git push --set-upstream origin $NEW_BRANCH_NAME
-
 # get release notes from diff in changelog
 # 1. get diff of changelog file which will return only new additions since last version
 # 2. egrep prints only lines of diff with pluses in the beginning
@@ -48,6 +41,13 @@ git push --set-upstream origin $NEW_BRANCH_NAME
 # 4. awk prints the lines with newlines
 echo "Preparing release notes"
 RELEASE_NOTES=$(git diff $PREV_TAG $1 CHANGELOG.md | egrep '^\+' | cut -c2-1024 | awk '{printf "%s\\n", $0}')
+
+# create release branch for hotfixes
+NEW_BRANCH_NAME="release-$1"
+echo "Creating branch $NEW_BRANCH_NAME"
+git checkout -b $NEW_BRANCH_NAME
+git push --set-upstream origin $NEW_BRANCH_NAME
+
 echo "Release notes $RELEASE_NOTES"
 
 
