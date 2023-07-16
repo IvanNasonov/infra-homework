@@ -7,7 +7,7 @@ on:
 
 env:
   user_name: ${{ secrets.USER_NAME }}
-  user_EMAIL: ${{ secrets.USER_EMAIL }}
+  user_email: ${{ secrets.USER_EMAIL }}
 jobs:
   release:
     runs-on: ubuntu-latest
