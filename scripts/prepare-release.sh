@@ -21,6 +21,8 @@ git config --global user.name $user_email
 PREV_VERSION=$(node -p "require('./package.json').version")
 PREV_TAG=v$PREV_VERSION
 
+echo "previous tag is ${PREV_TAG}"
+
 # update version and changelog
 VERSION_NUMBER=${1:1}
 echo "Creating changelog for $VERSION_NUMBER"
@@ -39,9 +41,9 @@ git push --set-upstream origin $NEW_BRANCH_NAME
 # 3. cut cunts the "+" character and limits line length to 1024 characrers
 # 4. awk prints the lines with newlines
 echo "Preparing release notes"
-RELEASE_NOTES=$(git diff $PREV_TAG $TAG CHANGELOG.md | egrep '^\+' | cut -c2-1024 | awk '{printf "%s\\n", $0}')
+RELEASE_NOTES=$(git diff $PREV_TAG $1 CHANGELOG.md | egrep '^\+' | cut -c2-1024 | awk '{printf "%s\\n", $0}')
 echo $RELEASE_NOTES
 
 
 # creating a release issue
-gh issue create --title "Release $1" --body "Insert body here" --label "RELEASE" --assignee $2 --body-file $RELEASE_NOTES
+gh issue create --title "Release $1" --body "Insert body here" --label "RELEASE" --assignee $2 --body $RELEASE_NOTES
