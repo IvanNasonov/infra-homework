@@ -11,21 +11,24 @@
 
 # configure git user
 echo "Setting up git user"
+echo "Setting name to $user_name"
+echo "Setting email to $user_email"
 git config --global user.email $user_name
 git config --global user.name $user_email
-echo ${git config --global user.email}
-echo ${git config --global user.name}
+
+echo $(git config --global user.email)
+echo $(git config --global user.name)
 
 # create release branch for hotfixes
 NEW_BRANCH_NAME="release-$1"
-echo "creating branch $NEW_BRANCH_NAME"
+echo "Creating branch $NEW_BRANCH_NAME"
 git checkout -b $NEW_BRANCH_NAME
 git push --set-upstream origin $NEW_BRANCH_NAME
 
 
 # generate changelog and change app version using standard-version
 VERSION_NUMBER=${1:1}
-echo "creating changelog for $VERSION_NUMBER"
+echo "Creating changelog for $VERSION_NUMBER"
 npx standard-version -- --release-as "$VERSION_NUMBER" --skip.tag
 
 # creating a release issue
