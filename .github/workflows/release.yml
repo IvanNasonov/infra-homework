@@ -4,6 +4,10 @@ on:
   push:
     tags:
       - v[0-9]+
+
+env:
+  user_name: ${{ secrets.USER_NAME }}
+  user_EMAIL: ${{ secrets.USER_EMAIL }}
 jobs:
   release:
     runs-on: ubuntu-latest
