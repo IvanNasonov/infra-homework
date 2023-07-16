@@ -27,4 +27,4 @@ git checkout -b $NEW_BRANCH_NAME
 git push --set-upstream origin $NEW_BRANCH_NAME
 
 #creating a release issue
-gh issue create --title "Release $1" --body "Insert body here" --label "RELEASE" --assigne $2
+gh issue create --title "Release $1" --body "Insert body here" --label "RELEASE" --assignee $2
