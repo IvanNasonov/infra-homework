@@ -52,4 +52,4 @@ echo "Release notes $RELEASE_NOTES"
 
 
 # creating a release issue
-gh issue create --title "Release $1" --body "Insert body here" --label "RELEASE" --assignee $2 --body $RELEASE_NOTES
+gh issue create --title "Release $1" --body "Insert body here" --label "RELEASE" --assignee "$2" --body "$RELEASE_NOTES"
