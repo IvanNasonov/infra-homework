@@ -14,8 +14,9 @@
 # $1 - version tag name
 
 # configure git user
-git config --global user.email $GITHUB_USER_EMAIL
-git config --global user.name $GITHUB_USER_NAME
+git remote set-url origin https://$GITLAB_ACCESS_TOKEN@$GITLAB_REPOSITORY.git
+git config --global user.email $USER_EMAIL
+git config --global user.name $USER_NAME
 
 NEW_BRANCH_NAME="release-$1"
 
