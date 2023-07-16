@@ -26,6 +26,7 @@ echo "previous tag is ${PREV_TAG}"
 # update version and changelog
 VERSION_NUMBER=${1:1}
 echo "Creating changelog for $VERSION_NUMBER"
+git checkout master
 npx standard-version --release-as $VERSION_NUMBER --skip.tag
 git push origin master
 
