@@ -18,6 +18,7 @@ git config --global user.email $user_email
 git config --global user.name $user_name
 git checkout master
 git fetch --all --tags
+git fetch --prune --unshallow
 
 # remember previous version
 PREV_VERSION=$(node -p "require('./package.json').version")
